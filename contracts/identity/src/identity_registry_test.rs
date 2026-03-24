@@ -54,6 +54,7 @@ fn test_add_and_verify_identity() {
     client.add(&admin, &user, &hash, &1);
     
     assert!(client.verify(&user));
+    assert_eq!(client.get_registry_tier(&user), 1);
 }
 
 #[test]

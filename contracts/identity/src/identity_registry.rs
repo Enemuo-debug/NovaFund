@@ -81,7 +81,7 @@ impl IdentityRegistryContract {
     }
     
     /// Publicly verifiable function to get a user's KYC tier
-    pub fn get_tier(env: Env, user: Address) -> u32 {
+    pub fn get_registry_tier(env: Env, user: Address) -> u32 {
         let key = RegistryDataKey::Identity(user);
         if let Some(info) = env.storage().persistent().get::<_, IdentityInfo>(&key) {
             if matches!(info.status, IdentityStatus::Verified) {
